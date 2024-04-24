@@ -1,0 +1,20 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Cho phép đọc và ghi dữ liệu vào collection 'users'
+    match /users/{document=**} {
+      allow read, write: if true;
+    }
+
+    // Cho phép đọc và ghi dữ liệu vào collection 'rooms'
+    match /rooms/{document=**} {
+      allow read, write: if true;
+    }
+	
+	// Cho phép đọc và ghi dữ liệu vào collection 'rooms'
+    match /messages/{document=**} {
+      allow read, write: if true;
+    }
+  }
+}
